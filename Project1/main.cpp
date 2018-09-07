@@ -1,5 +1,5 @@
 #include <SDL.h>
-
+#include <stdio.h>
 SDL_Window* g_pWindow = 0;
 SDL_Renderer* g_pRenderer = 0;
 bool g_bRunning = false;
@@ -12,16 +12,12 @@ bool init(const char* title, int xpos, int ypos, int width, int height, int flag
 		{
 			g_pRenderer = SDL_CreateRenderer(g_pWindow, -1, 0);
 		}
-		else
-		{
-			return false;
-		}
 	}
 	else
 	{
 		return false;
 	}
-	return false;
+	return true;
 }
 
 void render()
@@ -44,6 +40,7 @@ int main(int argc, char* args[])
 	{
 		render();
 	}
+	SDL_Delay(5000);
 	SDL_Quit();
 	return 0;
 }
